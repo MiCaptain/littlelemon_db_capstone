@@ -33,3 +33,17 @@ PREPARE GetOrderDetail FROM
 SET @id = 7;
 EXECUTE GetOrderDetail USING @id;
 
+SELECT * from bookings;
+
+CREATE PROCEDURE CheckBooking(IN bookingDate DATE, IN tableNo INT, OUT isBooked BOOLEAN)
+BEGIN
+    SET isBooked = FALSE;
+    SELECT COUNT(*) INTO isBooked FROM Bookings
+    WHERE TableNO = tableNo AND BookingDate = bookingDate;
+END
+
+call CheckBooking('19:00:00', 5, 2, '2022-10-19');
+call AddBooking(5, 2, '2022-10-20');
+call UpdateBooking(14, '2022-10-23');
+call CancelBooking(13);
+SELECT * FROM Bookings;
