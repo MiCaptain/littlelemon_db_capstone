@@ -1,0 +1,4 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `DeleteOrder`(IN ID INT)
+BEGIN
+DELETE FROM orders WHERE OrderID = ID;
+END
