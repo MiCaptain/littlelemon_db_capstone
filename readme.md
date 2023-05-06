@@ -1,5 +1,2 @@
-setting up repository for project 
-
-and testing
-
-and change
+Check model file for complete database,
+check sql files inside procedures folder for procedures code.
